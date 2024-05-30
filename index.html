@@ -4,43 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
+    <div class="container mt-5">
+        <h2 class="mb-4">Iniciar Sesión</h2>
         <form id="login-form">
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="button" onclick="verificarInicioSesion()">Iniciar Sesión</button>
-
-            <button type="button" onclick="limpiarFormulario()">Cancelar</button>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="verificarInicioSesion()" class="btn btn-primary">Iniciar Sesión</button>
+                <button type="button" onclick="limpiarFormulario()" class="btn btn-secondary">Cancelar</button>
+            </div>
         </form>
     </div>
     <script>
         function limpiarFormulario() {
             document.getElementById("login-form").reset();
         }
+
+        function verificarInicioSesion() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username !== "" && password !== "") {
+                // Redireccionar al usuario a la página Formulario.html
+                window.location.href = "code/menu.html";
+            } else {
+                alert("Por favor ingrese un nombre de usuario y contraseña.");
+            }
+        }
     </script>
 </body>
 </html>
-<script>
-    function limpiarFormulario() {
-        document.getElementById("login-form").reset();
-    }
-
-    function verificarInicioSesion() {
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
-
-        if (username !== "" && password !== "") {
-            // Redireccionar al usuario a la página Formulario.html
-            window.location.href = "code/menu.html";
-        } else {
-            alert("Por favor ingrese un nombre de usuario y contraseña.");
-        }
-    }
-</script>
-
