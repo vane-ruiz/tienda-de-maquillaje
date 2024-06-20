@@ -1,1 +1,1 @@
-SELECT * FROM tienda_de_maquillaje.authentication;
+SELECT * FROM tienda_de_maquillaje.users;
