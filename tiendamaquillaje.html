@@ -7,6 +7,48 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Maquillaje
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                    <a class="dropdown-item" href="#productos">Productos Maquillaje</a>
+                    <a class="dropdown-item" href="#galeria">Galería Maquillaje</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cabello
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                    <a class="dropdown-item" href="#">Productos Cabello</a>
+                    <a class="dropdown-item" href="#">Galería Cabello</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cuidado Corporal
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                    <a class="dropdown-item" href="#">Productos Cuidado Corporal</a>
+                    <a class="dropdown-item" href="#">Galería Cuidado Corporal</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <body>
     <!-- Barra de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -39,10 +81,11 @@
             <!-- Producto 1 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                    <img src="img/keratina.jpeg" class="card-img-top" alt="Producto 1">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 1</h5>
-                        <p class="card-text">Descripción del producto 1.</p>
+                        <h5 class="card-title">Keratina Jardin Botanico</h5>
+                        <p class="card-text">$35.000</p>
+                        <p class="card-text"><strong>Precio:</strong> $35.000</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
@@ -50,10 +93,11 @@
             <!-- Producto 2 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="producto2.jpg" class="card-img-top" alt="Producto 2">
+                    <img src="img/rayitos.jpg" class="card-img-top" alt="Producto 2">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 2</h5>
-                        <p class="card-text">Descripción del producto 2.</p>
+                        <h5 class="card-title">Rayitos de sol kit decolorante bellos</h5>
+                        <p class="card-text">Rayitos De Sol Kit Decolorante De Vellos trae un decolorante en polvo con alto y rápido poder de decoloración para vellos de brazos, piernas, espalda, abdomen y gluteos. ¿Quieres que tus vellos sean más doraditos? Rayitos de sol decolora tus vellos con 3 simples pasos.</p>
+                        <p class="card-text"><strong>Precio:</strong> $14.000</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
@@ -61,14 +105,57 @@
             <!-- Producto 3 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="producto3.jpg" class="card-img-top" alt="Producto 3">
+                    <img src="img/bioaquac.jpg" class="card-img-top" alt="Producto 3">
                     <div class="card-body">
-                        <h5 class="card-title">Producto 3</h5>
-                        <p class="card-text">Descripción del producto 3.</p>
+                        <h5 class="card-title">Mascarilla o velo facial vitamina c Bioaqua</h5>
+                        <p class="card-text">La Mascarilla o Velo Facial Vitamina C Bioaqua neutraliza los radicales libres que causan estrés oxidativo, previniendo el envejecimiento prematuro y retrasando los signos visibles del envejecimiento biológico. Producto 100% original Bioaqua.</p>
+                        <p class="card-text"><strong>Precio:</strong> $3.000</p>
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
             </div>
+        </div>
+         <!-- Sección de Productos -->
+    <section id="productos" class="container mt-5">
+        <div class="row">
+            <!-- Producto 4 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/polvodehadas.jpg" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">polvo de hadas bronze</h5>
+                        <p class="card-text">El Polvo De Hadas Bronze Bloomshell es el iluminador que estabas buscando para darle brillo a todo tu cuerpo de forma fácil gracias a su aplicador en forma de lengüita que esparce de manera rápida y eficaz el brillo por toda tu piel. Efecto color bronce.</p>
+                        <p class="card-text"><strong>Precio:</strong> $18.000</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 5 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/jaboncarbon.jpg" class="card-img-top" alt="Producto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">jabon de carbon Pili</h5>
+                        <p class="card-text">El Jabón de Azufre Pili es una barra Detox de limpieza profunda, para todo tipo de piel. Purifica, disminuye el brillo y mejora la apariencia de la piel.</p>
+                        <p class="card-text"><strong>Precio:</strong> $8.400</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 6 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img/pocima.jpg" class="card-img-top" alt="Producto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Pocima para pestañas kaba</h5>
+                        <p class="card-text">La Pócima para pestañas Kaba engrosa y aumenta el tamaño de tus pestañas y cejas. La pócima contiene dos productos: un aceite desmaquillante y un tratamiento para pestañas. Ahora con fórmula mejorada.</p>
+                        <p class="card-text"><strong>Precio:</strong> $65.000</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
         </div>
     </section>
 
@@ -77,13 +164,13 @@
         <h2 class="text-center">Galería</h2>
         <div class="row">
             <div class="col-md-4">
-                <img src="galeria1.jpg" class="img-fluid" alt="Galería 1">
+                <img src="img/galeria1.jpg" class="img-fluid" alt="Galería 1">
             </div>
             <div class="col-md-4">
-                <img src="galeria2.jpg" class="img-fluid" alt="Galería 2">
+                <img src="img/galeria2.jpg" class="img-fluid" alt="Galería 2">
             </div>
             <div class="col-md-4">
-                <img src="galeria3.jpg" class="img-fluid" alt="Galería 3">
+                <img src="img/galeria3.jpg" class="img-fluid" alt="Galería 3">
             </div>
         </div>
     </section>
