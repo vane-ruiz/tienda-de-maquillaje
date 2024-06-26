@@ -1,3 +1,73 @@
+<?php
+   
+  require "conexion.php";
+ 
+  session_start();
+
+  if($_POST)
+  {
+
+    $usu_usu = $_POST['username'];
+    $pass_usu = $_POST['password'];
+
+    $sql = "SELECT * FROM usuarios WHERE username='$usu_usu'";
+    //echo $sql;
+    $resultado = $mysqli->query($sql);
+    $num = $resultado->num_rows;
+
+      if($num>0)
+      {
+        $row = $resultado->fetch_assoc();
+        $password_bd = $row['password'];
+
+        $pass_c = sha1($pass_usu);
+
+        if($password_bd == $pass_c)
+        {
+          $_SESSION['id_usu'] = $row['id_usu'];
+          $_SESSION['nom_usu'] = $row['nom_usu'];
+          $_SESSION['tipo_usu'] = $row['tipo_usu'];
+
+          if($row['tipo_usu']==9)
+          {
+            // header("Location: code/usuarios/adduser.php");
+            header("Location: tiendamaquillaje.html");
+          }
+          elseif($row['tipo_usu']==2)
+          {
+            header("Location: tiendamaquillaje.html");
+          }
+          elseif($row['tipo_usu']==3)
+          {
+            header("Location: tiendamaquillaje.html");
+          }
+          elseif($row['tipo_usu']==4)
+          {
+            header("Location: tiendamaquillaje.html");
+          }
+          elseif($row['tipo_usu']==5)
+          {
+            header("Location: tiendamaquillaje.html");
+          }
+          elseif($row['tipo_usu']==6)
+          {
+            header("Location: tiendamaquillaje.html");
+          }
+          else
+          {
+            
+            header("Location: index.php");
+          }
+        }else
+        {
+          echo "La contraseña no coincide";
+        }
+      }else
+      {
+        echo "NO existe usuario";
+      }
+  }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,8 +100,8 @@
             
     <div class="container mt-5 login-container">
         <div class="login-form">
-            <h2 class="mb-4">Iniciar Sesión</h2>
-            <form id="login-form">
+          <h2 class="mb-4">Iniciar Sesión</h2>
+          <form method="POST" id="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div class="form-group">
                     <label for="username">Usuario:</label>
                     <input type="text" id="username" name="username" class="form-control" required>

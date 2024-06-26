@@ -1,3 +1,39 @@
+<?php
+    require('../conexion.php');
+    date_default_timezone_set("America/Bogota");
+
+    // If form submitted, insert values into the database.
+    if (isset($_REQUEST['username'])) {
+        $usu_usu = stripslashes($_REQUEST['username']); // removes backslashes
+        $usu_usu = mysqli_real_escape_string($mysqli,$usu_usu); //escapes special characters in a string
+        $pass_usu = stripslashes($_REQUEST['password']);
+        $pass_usu = mysqli_real_escape_string($mysqli,$pass_usu);
+        $nom_usu = stripslashes($_REQUEST['nom_usu']);
+        $tipo_usu = 9;
+        
+        // Check if the username already exists in the database
+        $check_query = "SELECT * FROM autentication WHERE username = '$usu_usu'";
+        $check_result = mysqli_query($mysqli, $check_query);
+        
+        if (mysqli_num_rows($check_result) > 0) {
+            // If the username already exists, show a message
+            echo "<center><p style='border-radius: 20px;box-shadow: 10px 10px 5px #c68615; font-size: 23px; font-weight: bold;'>El usuario ya está registrado. Por favor, elija otro nombre de usuario.</p></center>";
+        } else {
+            // If the username doesn't exist, proceed with the registration
+            $query = "INSERT INTO `usuarios` (usu_usu, pass_usu, tipo_usu, nom_usu) VALUES ('$usu_usu', '".sha1($pass_usu)."', '$tipo_usu', '$nom_usu')";
+            $result = mysqli_query($mysqli, $query);
+        
+            // Check if data is inserted successfully
+            if ($result) {
+                echo "<center><p style='border-radius: 20px;box-shadow: 10px 10px 5px #c68615; font-size: 23px; font-weight: bold;'>REGISTRO CREADO SATISFACTORIAMENTE</p></center>
+                    <div class='form' align='center'><h3>Regresar para iniciar la sesión... <br/><br/><center><a href='index.php'>Regresar</a></center></h3></div>";
+            } else {
+                echo "Error al insertar datos en la base de datos: " . mysqli_error($mysqli);
+            }
+        }
+    } 
+?>
+
 !DOCTYPE html>
 <html lang="es">
 
