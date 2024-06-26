@@ -5,22 +5,21 @@ date_default_timezone_set("America/Bogota");
 // If form submitted, insert values into the database.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar que los campos obligatorios estén presentes y no están vacíos
-    $required_fields = ['username', 'password', 'type_document', 'document', 'last_name', 'address', 'phone', 'email'];
+    $required_fields = ['password', 'email' ];
     foreach ($required_fields as $field) {
         if (!isset($_POST[$field]) || empty($_POST[$field])) {
             die("<center><p style='border-radius: 20px;box-shadow: 10px 10px 5px #c68615; font-size: 23px; font-weight: bold;'>Por favor, complete todos los campos obligatorios.</p></center>");
         }
     }
 
-    $usu_usu = stripslashes($_POST['username']);
-    $usu_usu = mysqli_real_escape_string($mysqli, $usu_usu);
+    $ema_usu = stripslashes($_POST['email']);
+    $ema_usu = mysqli_real_escape_string($mysqli, $ema_usu);
     $pass_usu = stripslashes($_POST['password']);
     $pass_usu = mysqli_real_escape_string($mysqli, $pass_usu);
-    $nom_usu = stripslashes($_POST['username']);
     $tipo_usu = 9;
 
     // Verificar si el usuario ya existe en la base de datos
-    $check_query = "SELECT * FROM usuarios WHERE usu_usu = '$usu_usu'";
+    $check_query = "SELECT * FROM authentication WHERE email = '$ema_usu'";
     $check_result = mysqli_query($mysqli, $check_query);
 
     if (!$check_result) {
@@ -32,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<center><p style='border-radius: 20px;box-shadow: 10px 10px 5px #c68615; font-size: 23px; font-weight: bold;'>El usuario ya está registrado. Por favor, elija otro nombre de usuario.</p></center>";
     } else {
         // Si el usuario no existe, proceder con el registro
-        $query = "INSERT INTO usuarios (usu_usu, pass_usu, tipo_usu, nom_usu) VALUES ('$usu_usu', '" . sha1($pass_usu) . "', '$tipo_usu', '$nom_usu')";
+        $query = "INSERT INTO authentication (email, password) VALUES ('$ema_usu', '" . sha1($pass_usu) . "')";
         $result = mysqli_query($mysqli, $query);
 
         if ($result) {
@@ -61,49 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Crear Nuevo Usuario</h2>
-        <form id="crearUsuarioForm">
+        <form id="crearUsuarioForm" method="POST">
             <div class="form-group">
-                <label for="type_document">Tipo de Identificación:</label>
-                <select id="type_document" name="type_document" class="form-control" required>
-                    <option value="">Seleccionar</option>
-                    <option value="CC">CC</option>
-                    <option value="TI">TI</option>
-                    <option value="CE">CE</option>
-                    <option value="NIT">NIT</option>
-                    <option value="RC">RC</option>
-                    <option value="PA">PA</option>
-                </select>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="document">cedula:</label>
-                    <input type="text" id="document" name="document" class="form-control" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="username">Nombre:</label>
-                    <input type="text" id="username" name="username" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="last_name">Apellidos:</label>
-                    <input type="text" id="last_name" name="last_name" class="form-control" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="address">direccion:</label>
-                    <input type="tel" id="address" name="address" class="form-control" required>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="phone">Teléfono:</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" required>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password">contraseña:</label>
