@@ -6,51 +6,9 @@
     <title>Tienda de Maquillaje</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Inicio</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Maquillaje
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                    <a class="dropdown-item" href="#productos">Productos Maquillaje</a>
-                    <a class="dropdown-item" href="#galeria">Galería Maquillaje</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cabello
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                    <a class="dropdown-item" href="#">Productos Cabello</a>
-                    <a class="dropdown-item" href="#">Galería Cabello</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cuidado Corporal
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                    <a class="dropdown-item" href="#">Productos Cuidado Corporal</a>
-                    <a class="dropdown-item" href="#">Galería Cuidado Corporal</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#contacto">Contacto</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 <body>
-    <!-- Barra de Navegación -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Maquillaje</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,112 +28,125 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contacto">Contacto</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="cart-icon">
+                        <i class="fa fa-shopping-cart"></i> <span id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
 
-    <!-- Sección de Productos -->
-    <section id="productos" class="container mt-5">
-        <h2 class="text-center">Nuestros Productos</h2>
-        <div class="row">
-            <!-- Producto 1 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/keratina.jpeg" class="card-img-top" alt="Producto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Keratina Jardin Botanico</h5>
-                        <p class="card-text">$35.000</p>
-                        <p class="card-text"><strong>Precio:</strong> $35.000</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+        <!-- Sección de Productos -->
+        <section id="productos" class="container mt-5">
+            <h2 class="text-center">Nuestros Productos</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/keratina.jpeg" class="card-img-top" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Keratina Jardin Botanico</h5>
+                            <p class="card-text">$35.000</p>
+                            <p class="card-text"><strong>Precio:</strong> $35.000</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="1" data-name="Keratina Jardin Botanico" data-price="35000">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/rayitos.jpg" class="card-img-top" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Rayitos de sol kit decolorante bellos</h5>
+                            <p class="card-text">Rayitos De Sol Kit Decolorante De Vellos trae un decolorante en polvo con alto y rápido poder de decoloración para vellos de brazos, piernas, espalda, abdomen y gluteos. ¿Quieres que tus vellos sean más doraditos? Rayitos de sol decolora tus vellos con 3 simples pasos.</p>
+                            <p class="card-text"><strong>Precio:</strong> $14.000</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="2" data-name="Rayitos de sol kit decolorante bellos" data-price="14000">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/bioaquac.jpg" class="card-img-top" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Mascarilla o velo facial vitamina c Bioaqua</h5>
+                            <p class="card-text">La Mascarilla o Velo Facial Vitamina C Bioaqua neutraliza los radicales libres que causan estrés oxidativo, previniendo el envejecimiento prematuro y retrasando los signos visibles del envejecimiento biológico. Producto 100% original Bioaqua.</p>
+                            <p class="card-text"><strong>Precio:</strong> $3.000</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="3" data-name="Mascarilla o velo facial vitamina c Bioaqua" data-price="3000">Comprar</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Producto 2 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/rayitos.jpg" class="card-img-top" alt="Producto 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Rayitos de sol kit decolorante bellos</h5>
-                        <p class="card-text">Rayitos De Sol Kit Decolorante De Vellos trae un decolorante en polvo con alto y rápido poder de decoloración para vellos de brazos, piernas, espalda, abdomen y gluteos. ¿Quieres que tus vellos sean más doraditos? Rayitos de sol decolora tus vellos con 3 simples pasos.</p>
-                        <p class="card-text"><strong>Precio:</strong> $14.000</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+             <!-- Sección de Productos -->
+        <section id="productos" class="container mt-5">
+            <div class="row">
+                <!-- Producto 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/polvodehadas.jpg" class="card-img-top" alt="Producto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">polvo de hadas bronze</h5>
+                            <p class="card-text">El Polvo De Hadas Bronze Bloomshell es el iluminador que estabas buscando para darle brillo a todo tu cuerpo de forma fácil gracias a su aplicador en forma de lengüita que esparce de manera rápida y eficaz el brillo por toda tu piel. Efecto color bronce.</p>
+                            <p class="card-text"><strong>Precio:</strong> $18.000</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="3" data-name="polvo de hadas bronze" data-price="18000">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/jaboncarbon.jpg" class="card-img-top" alt="Producto 2">
+                        <div class="card-body">
+                            <h5 class="card-title">jabon de carbon Pili</h5>
+                            <p class="card-text">El Jabón de Azufre Pili es una barra Detox de limpieza profunda, para todo tipo de piel. Purifica, disminuye el brillo y mejora la apariencia de la piel.</p>
+                            <p class="card-text"><strong>Precio:</strong> $8.400</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="3" data-name="jabon de carbon Pili" data-price="84000">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="img/pocima.jpg" class="card-img-top" alt="Producto 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Pocima para pestañas kaba</h5>
+                            <p class="card-text">La Pócima para pestañas Kaba engrosa y aumenta el tamaño de tus pestañas y cejas. La pócima contiene dos productos: un aceite desmaquillante y un tratamiento para pestañas. Ahora con fórmula mejorada.</p>
+                            <p class="card-text"><strong>Precio:</strong> $65.000</p>
+                            <a href="#" class="btn btn-primary add-to-cart" data-id="3" data-name="pocima para pestañas kaba" data-price="65000">Comprar</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Producto 3 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/bioaquac.jpg" class="card-img-top" alt="Producto 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Mascarilla o velo facial vitamina c Bioaqua</h5>
-                        <p class="card-text">La Mascarilla o Velo Facial Vitamina C Bioaqua neutraliza los radicales libres que causan estrés oxidativo, previniendo el envejecimiento prematuro y retrasando los signos visibles del envejecimiento biológico. Producto 100% original Bioaqua.</p>
-                        <p class="card-text"><strong>Precio:</strong> $3.000</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
+    </div>
+            </div>
+        </section>
+    
+    <div class="modal fade" id="cart-modal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Carrito de Compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cart-items" class="list-group">
+                        <!-- Productos del carrito serán añadidos aquí -->
+                    </ul>
+                    <div class="mt-3 text-right">
+                        <strong>Total: $<span id="cart-total">0</span></strong>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="checkout-button">Pagar</button>
                 </div>
             </div>
         </div>
-         <!-- Sección de Productos -->
-    <section id="productos" class="container mt-5">
-        <div class="row">
-            <!-- Producto 4 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/polvodehadas.jpg" class="card-img-top" alt="Producto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">polvo de hadas bronze</h5>
-                        <p class="card-text">El Polvo De Hadas Bronze Bloomshell es el iluminador que estabas buscando para darle brillo a todo tu cuerpo de forma fácil gracias a su aplicador en forma de lengüita que esparce de manera rápida y eficaz el brillo por toda tu piel. Efecto color bronce.</p>
-                        <p class="card-text"><strong>Precio:</strong> $18.000</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 5 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/jaboncarbon.jpg" class="card-img-top" alt="Producto 2">
-                    <div class="card-body">
-                        <h5 class="card-title">jabon de carbon Pili</h5>
-                        <p class="card-text">El Jabón de Azufre Pili es una barra Detox de limpieza profunda, para todo tipo de piel. Purifica, disminuye el brillo y mejora la apariencia de la piel.</p>
-                        <p class="card-text"><strong>Precio:</strong> $8.400</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Producto 6 -->
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="img/pocima.jpg" class="card-img-top" alt="Producto 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Pocima para pestañas kaba</h5>
-                        <p class="card-text">La Pócima para pestañas Kaba engrosa y aumenta el tamaño de tus pestañas y cejas. La pócima contiene dos productos: un aceite desmaquillante y un tratamiento para pestañas. Ahora con fórmula mejorada.</p>
-                        <p class="card-text"><strong>Precio:</strong> $65.000</p>
-                        <a href="#" class="btn btn-primary">Comprar</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-        </div>
-    </section>
+    </div>
 
-    <!-- Galería -->
-    <section id="galeria" class="container mt-5">
-        <h2 class="text-center">Galería</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <img src="img/galeria1.jpg" class="img-fluid" alt="Galería 1">
-            </div>
-            <div class="col-md-4">
-                <img src="img/galeria2.jpg" class="img-fluid" alt="Galería 2">
-            </div>
-            <div class="col-md-4">
-                <img src="img/galeria3.jpg" class="img-fluid" alt="Galería 3">
-            </div>
-        </div>
-    </section>
-
-    <!-- Pie de Página -->
     <footer class="bg-light text-center text-lg-start mt-5">
         <div class="container p-4">
             <p>&copy; 2024 Tienda de Maquillaje. Todos los derechos reservados.</p>
@@ -186,5 +157,79 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let cart = [];
+            const cartIcon = document.getElementById('cart-icon');
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            function updateCart() {
+                cartCount.textContent = cart.length;
+                cartItems.innerHTML = '';
+                let total = 0;
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    const listItem = document.createElement('li');
+                    listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+                    listItem.innerHTML = `
+                        ${item.name} - $${item.price} x 
+                        <input type="number" class="item-quantity" data-index="${index}" value="${item.quantity}" min="1" style="width: 50px;">
+                        <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Eliminar</button>
+                    `;
+                    cartItems.appendChild(listItem);
+                });
+                cartTotal.textContent = total;
+            }
+
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = button.getAttribute('data-id');
+                    const name = button.getAttribute('data-name');
+                    const price = parseFloat(button.getAttribute('data-price'));
+                    const existingItemIndex = cart.findIndex(item => item.id === id);
+                    if (existingItemIndex !== -1) {
+                        cart[existingItemIndex].quantity += 1;
+                    } else {
+                        const item = { id, name, price, quantity: 1 };
+                        cart.push(item);
+                    }
+                    updateCart();
+                });
+            });
+
+            cartItems.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-item')) {
+                    const index = e.target.getAttribute('data-index');
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+
+            cartItems.addEventListener('input', (e) => {
+                if (e.target.classList.contains('item-quantity')) {
+                    const index = e.target.getAttribute('data-index');
+                    const quantity = parseInt(e.target.value);
+                    if (quantity > 0) {
+                        cart[index].quantity = quantity;
+                        updateCart();
+                    }
+                }
+            });
+
+            cartIcon.addEventListener('click', () => {
+                $('#cart-modal').modal('show');
+            });
+
+            document.getElementById('checkout-button').addEventListener('click', () => {
+                alert('¡Gracias por su compra!');
+                cart = [];
+                updateCart();
+                $('#cart-modal').modal('hide');
+            });
+        });
+    </script>
 </body>
 </html>
