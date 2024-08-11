@@ -1,11 +1,29 @@
+/* Estilos generales para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2ebeb;
-    
+    background-color: #daabaf; /* Color rosado muy claro */
 }
+head
+        .welcome-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;
+        }
 
+        .welcome-section img {
+            max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
+            margin-right: 20px; /* Espacio entre la imagen y la descripción */
+        }
+
+        .welcome-section p {
+            font-size: 18px; /* Tamaño del texto de la descripción */
+        }
+
+head
+/* Estilos específicos para el contenedor de inicio de sesión */
 .login-container {
     max-width: 400px;
     margin: 100px auto;
@@ -15,20 +33,24 @@ body {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
 }
 
+/* Estilos para el encabezado <h2> */
 h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Estilos para formularios */
 form {
     display: flex;
     flex-direction: column;
 }
 
+/* Estilos para las etiquetas */
 label {
     margin-bottom: 5px;
 }
 
+/* Estilos para campos de entrada y botones */
 input, button {
     margin-bottom: 10px;
     padding: 10px;
@@ -36,6 +58,7 @@ input, button {
     border: 1px solid #ccc;
 }
 
+/* Estilos para botones */
 button {
     background-color: rgb(139, 186, 237);
     color: hwb(211 69% 5%);
@@ -47,13 +70,7 @@ button:hover {
     background-color: #a1c9f4;
 }
 
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
+/* Estilos para la barra lateral */
 .sidebar {
     position: fixed;
     left: 0;
@@ -64,6 +81,7 @@ body {
     padding-top: 20px;
 }
 
+/* Estilos para la navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -99,14 +117,7 @@ nav ul ul li a {
     padding: 10px 20px;
 }
 
-
-
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-}
-
+/* Estilos para el contenedor principal */
 .container {
     max-width: 400px;
     margin: 100px auto;

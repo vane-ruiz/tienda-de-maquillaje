@@ -1,73 +1,54 @@
 <?php
-   
-  require "conexion.php";
- 
-  session_start();
 
-  if($_POST)
-  {
+require "tienda_conexion.php"; // Incluye el archivo de conexión
+session_start();
 
-    $usu_usu = $_POST['username'];
-    $pass_usu = $_POST['password'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $ema_usu = $_POST['email'];
+    $password = $_POST['password'];
 
-    $sql = "SELECT * FROM usuarios WHERE username='$usu_usu'";
-    //echo $sql;
-    $resultado = $mysqli->query($sql);
-    $num = $resultado->num_rows;
+    // Verifica si la conexión fue exitosa
+    if ($mysqli->connect_errno) {
+        die("Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
+    }
 
-      if($num>0)
-      {
-        $row = $resultado->fetch_assoc();
-        $password_bd = $row['password'];
+    $sql = "SELECT * FROM authentication WHERE email = ?";
+    if ($stmt = $mysqli->prepare($sql)) {
+        $stmt->bind_param("s", $ema_usu);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
 
-        $pass_c = sha1($pass_usu);
+        if ($resultado->num_rows > 0) {
+            $row = $resultado->fetch_assoc();
+            $password_bd = $row['password'];
 
-        if($password_bd == $pass_c)
-        {
-          $_SESSION['id_usu'] = $row['id_usu'];
-          $_SESSION['nom_usu'] = $row['nom_usu'];
-          $_SESSION['tipo_usu'] = $row['tipo_usu'];
+            // Usa password_verify para comparar la contraseña ingresada con el hash almacenado
+            if (password_verify($password, $password_bd)) {
+                $_SESSION['pass_usu'] = $row['password'];
+                $_SESSION['ema_usu'] = $row['email'];
+                $_SESSION['type_usu'] = $row['type_usu'];
 
-          if($row['tipo_usu']==9)
-          {
-            // header("Location: code/usuarios/adduser.php");
-            header("Location: tiendamaquillaje.html");
-          }
-          elseif($row['tipo_usu']==2)
-          {
-            header("Location: tiendamaquillaje.html");
-          }
-          elseif($row['tipo_usu']==3)
-          {
-            header("Location: tiendamaquillaje.html");
-          }
-          elseif($row['tipo_usu']==4)
-          {
-            header("Location: tiendamaquillaje.html");
-          }
-          elseif($row['tipo_usu']==5)
-          {
-            header("Location: tiendamaquillaje.html");
-          }
-          elseif($row['tipo_usu']==6)
-          {
-            header("Location: tiendamaquillaje.html");
-          }
-          else
-          {
-            
-            header("Location: index.php");
-          }
-        }else
-        {
-          echo "La contraseña no coincide";
+                if ($row['type_usu'] == "usuario" || $row['type_usu'] == "6") {
+                    // Redirige al menú
+                    header("Location: code/menu.html");
+                } else {
+                    // Redirige al índice
+                    header("Location: index.php");
+                }
+                exit();
+            } else {
+                echo "La contraseña no coincide";
+            }
+        } else {
+            echo "No existe usuario";
         }
-      }else
-      {
-        echo "NO existe usuario";
-      }
-  }
+        $stmt->close();
+    } else {
+        echo "Error en la preparación de la consulta SQL: " . $mysqli->error;
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -76,16 +57,18 @@
     <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-         .login-container {
+        .login-container {
             display: flex;
             align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         .login-form {
             width: 50%;
         }
         .login-image {
             width: 20%;
-            margin-right: 10px; /* Espacio entre la imagen y el formulario */
+            margin-right: 10px;
         }
         .login-image img {
             max-width: 100%;
@@ -94,24 +77,23 @@
     </style>
 </head>
 <body>
-        <div class="container mt-5 ">
-            <div class="image">
-                <img src="/img/logo.png" >
-            
-    <div class="container mt-5 login-container">
+    <div class="container login-container">
+        <div class="login-image">
+            <img src="./img/logo.png" alt="Logo">
+        </div>   
         <div class="login-form">
-          <h2 class="mb-4">Iniciar Sesión</h2>
-          <form method="POST" id="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <h2 class="mb-4">Iniciar Sesión</h2>
+            <form method="POST" id="login-form" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div class="form-group">
-                    <label for="username">Usuario:</label>
-                    <input type="text" id="username" name="username" class="form-control" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required autocomplete="username">
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password" class="form-control" required>
+                    <input type="password" id="password" name="password" class="form-control" required autocomplete="current-password">
                 </div>
                 <div class="form-group">
-                    <button type="button" onclick="verificarInicioSesion()" class="btn btn-primary">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     <button type="button" onclick="limpiarFormulario()" class="btn btn-secondary">Cancelar</button>
                 </div>
             </form>
@@ -121,20 +103,6 @@
         function limpiarFormulario() {
             document.getElementById("login-form").reset();
         }
-
-        function verificarInicioSesion() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            if (username !== "" && password !== "") {
-                // Redireccionar al usuario a la página Formulario.html
-                window.location.href = "code/menu.html";
-            } else {
-                alert("Por favor ingrese un nombre de usuario y contraseña.");
-            }
-        }
-    </script>
-
     </script>
 </body>
 </html>
